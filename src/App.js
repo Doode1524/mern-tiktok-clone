@@ -1,8 +1,22 @@
+import axios from "./axios";
 import React, { useEffect } from "react";
 import "./App.css";
 import Video from "./Video";
 
 function App() {
+  const [videos, setVideos] = useState([])
+
+  useEffect(() => {
+    async function fetchPosts() {
+      const response = await axios.get("/v2/posts");
+      setVideos(response.data)
+
+      return req
+    }
+
+    fetchPosts()
+  }, []);
+
   return (
     <div className="app">
       <h1>Hello</h1>
